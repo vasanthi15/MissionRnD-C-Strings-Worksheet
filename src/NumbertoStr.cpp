@@ -21,5 +21,40 @@ NOTES: Don't create new string.
 
 
 void number_to_str(float number, char *str,int afterdecimal){
-	
+	long int num;
+	int temp, i = 0, len = 0, flag = 0;
+	temp = afterdecimal;
+	while (temp--)
+	{
+		number *= 10;
+	}
+	num = number;
+	temp = 1;
+	while (num != 0)
+	{
+		num /= 10;
+		temp *= 10;
+		len++;
+	}
+	temp /= 10;
+	num = number;
+	if (num<0)
+	{
+		str[i++] = '-';
+		flag = -1;
+		num *= -1;
+	}
+	while (temp != 0)
+	{
+		if (afterdecimal == len - i - flag)
+			str[i] = '.';
+		else
+		{
+			str[i] = num / temp + 48;
+			num %= temp;
+			temp /= 10;
+		}
+		i++;
+	}
+	str[i] = '\0';
 }
