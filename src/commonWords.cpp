@@ -2,6 +2,7 @@
 OVERVIEW: Given two strings, find the words that are common to both the strings.
 E.g.: Input: "one two three", "two three five".  Output: "two", "three".
 
+
 INPUTS: Two strings.
 
 OUTPUT: common words in two given strings, return 2D array of strings.
@@ -26,7 +27,7 @@ int isStringMatch(char *str1, char *str2, int m, int n)
 	i = 0;
 	while ((str1[i] == ' ') && (str1[i] != '\0'))
 		i++;
-	while (str1[i] != '\0')
+	while((str1[i] != '\0'))
 	{
 		if ((str1[i] == temp[k]) && (str1[i]!=NULL))
 		{
@@ -69,7 +70,7 @@ char ** commonWords(char *str1, char *str2) {
 		}
 		i = j + 1;
 	}
-	if (ind == 0)
+	if (k == 0)
 		return NULL;
 	return retstr;
 }
